@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const openCart = () => setCart(!cart);
 
-  const quantity = useSelector((state) => state.cart);
+  const quantity = useSelector((state:any) => state.cart);
 
   const getItemsCount = () => {
     return quantity.reduce(
