@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Cart from "../Cart/Cart";
-import { RootStateOrAny, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import { Container, Icon, Info, Left, Logo, Right } from "./style";
 
 interface Product {
@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const openCart = () => setCart(!cart);
 
-  const quantity = useSelector((state: RootStateOrAny) => state.cart);
+  const quantity = useSelector((state) => state.cart);
 
   const getItemsCount = () => {
     return quantity.reduce(

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import {
   decrementQuantity,
@@ -39,7 +39,7 @@ interface Cart {
 }
 
 const Cart = ({ active }: any) => {
-  const cart = useSelector((state: RootStateOrAny) => state.cart);
+  const cart = useSelector((state) => state.cart);
 
   const closeCart = () => {
     active(false);
