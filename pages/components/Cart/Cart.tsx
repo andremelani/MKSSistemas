@@ -50,7 +50,7 @@ interface CartState {
 
 const Cart = ({ active }: any) => {
 
-  const carrinho: any = useSelector((state: CartState) => state.cart);
+  const cart: any = useSelector((state: CartState) => state.cart);
 
 
   const closeCart = () => {
@@ -68,7 +68,7 @@ const Cart = ({ active }: any) => {
   }
 
   const getTotalPrice = () => {
-    return carrinho.reduce(
+    return cart.reduce(
       (accumulator: number, item: CartInterface) =>
         accumulator + item.quantity * item.price,
       0
@@ -83,7 +83,7 @@ const Cart = ({ active }: any) => {
         <CloseButton onClick={closeCart}>X</CloseButton>
       </Info>
       <CartItems>
-        {carrinho.map((product: any) => {
+        {cart.map((product: any) => {
           return (
             <>
               <ProductItem>

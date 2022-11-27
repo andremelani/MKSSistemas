@@ -60,6 +60,7 @@ export const CloseButton = styled.div`
   border-radius: 50%;
   font-weight: 400;
   font-size: 20px;
+  cursor: pointer;
 `;
 
 export const Confirm = styled.button`

@@ -16,14 +16,14 @@ interface RootState {
 
 
 const Navbar = () => {
-  const [cartOpen, setCartOpen] = useState<boolean>(false);
+  const [cart, setCart] = useState<boolean>(false);
 
-  const openCart = () => setCartOpen(!cartOpen);
+  const openCart = () => setCart(!cart);
 
-  const cart = useSelector((state:RootState) => state.cart);
+  const quantity = useSelector((state:RootState) => state.cart);
 
   const getItemsCount = () => {
-    return cart.reduce(
+    return quantity.reduce(
       (accumulator: number, item: Product) => accumulator + item.quantity,
       0
     );
@@ -39,7 +39,7 @@ const Navbar = () => {
         <Icon src="/images/cart.png" />
         {getItemsCount()}
       </Right>
-      {cartOpen && <Cart active={() => setCartOpen} />}
+      {cart && <Cart active={setCart} />}
     </Container>
   );
 };
