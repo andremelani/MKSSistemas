@@ -11,11 +11,12 @@ interface Product {
 
 interface RootState {
   cart: any[]
+
 }
 
 
 const Navbar = () => {
-  const [cartOpen, setCartOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState<boolean>(false);
 
   const openCart = () => setCartOpen(!cartOpen);
 
@@ -38,7 +39,7 @@ const Navbar = () => {
         <Icon src="/images/cart.png" />
         {getItemsCount()}
       </Right>
-      {cartOpen && <Cart active={setCartOpen} />}
+      {cartOpen && <Cart active={() => setCartOpen} />}
     </Container>
   );
 };

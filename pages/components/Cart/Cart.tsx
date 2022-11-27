@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import {
@@ -6,6 +6,7 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "../../../redux/cartSlice";
+import { RootState } from "../../../redux/store";
 import {
   Amount,
   CartItems,
@@ -34,16 +35,23 @@ interface CartInterface {
   id: number;
   quantity: number;
   price: number;
-  name: string;
-  photo: string;
+  name?: string;
+  photo?: string;
 }
 
-interface RootState {
+interface CartState {
   cart: any[]
+  id: number;
+  quantity: number;
+  price: number;
+  name?: string;
+  photo?: string;
 }
 
 const Cart = ({ active }: any) => {
-  const cart = useSelector((state: RootState) => state.cart);
+
+  const carrinho: any = useSelector((state: CartState) => state.cart);
+
 
   const closeCart = () => {
     active(false);
@@ -60,21 +68,22 @@ const Cart = ({ active }: any) => {
   }
 
   const getTotalPrice = () => {
-    return cart.reduce(
+    return carrinho.reduce(
       (accumulator: number, item: CartInterface) =>
         accumulator + item.quantity * item.price,
       0
     );
   };
 
+
   return (
-    <Container cart={active}>
+    <Container cart={active} >
       <Info>
         <Title>Carrinho de compras</Title>
         <CloseButton onClick={closeCart}>X</CloseButton>
       </Info>
       <CartItems>
-        {cart.map((product: any) => {
+        {carrinho.map((product: any) => {
           return (
             <>
               <ProductItem>

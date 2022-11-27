@@ -1,14 +1,3 @@
-/*import { configureStore } from '@reduxjs/toolkit'
-import cartSlice from './cartSlice'
-
-export default configureStore({
-    reducer: {
-        cart: cartSlice,
-    },
-})
-
-*/
-
 import { configureStore, StateFromReducersMapObject } from '@reduxjs/toolkit'
 import { cartReducer } from './cartSlice'
 
