@@ -6,6 +6,7 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "../../../redux/cartSlice";
+import { RootState } from "../../../redux/store";
 import {
   Amount,
   CartItems,
@@ -38,8 +39,8 @@ interface Cart {
   photo: string;
 }
 
-const Cart = ({ active }: any) => {
-  const cart = useSelector((state) => state.cart);
+const Cart = ({ active }: () =>  void) => {
+  const cart = useSelector((state: RootState) => state.cart);
 
   const closeCart = () => {
     active(false);
