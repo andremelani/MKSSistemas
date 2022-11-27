@@ -50,7 +50,7 @@ interface CartState {
 
 const Cart = ({ active }: any) => {
 
-  const cart: any = useSelector((state: CartState) => state.cart);
+  const cart: any[] = useSelector((state: CartState) => state.cart);
 
 
   const closeCart = () => {
