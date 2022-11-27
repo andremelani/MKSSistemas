@@ -6,9 +6,23 @@ import CardSkeleton from "../CardSkeleton/CardSkeleton";
 import { Container } from "./style";
 
 
+interface Products {
+  id:number
+  quantity: number;
+  price: number;
+  name: string;
+  photo: string;
+  description: string,
+  brand: string,
+  createdAt: Date,
+  updatedAt: Date
+
+}
+
+
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Products[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

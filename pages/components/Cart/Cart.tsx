@@ -41,11 +41,7 @@ interface CartInterface {
 
 interface CartState {
   cart: any[]
-  id: number;
-  quantity: number;
-  price: number;
-  name?: string;
-  photo?: string;
+
 }
 
 const Cart = ({ active }: any) => {
@@ -70,10 +66,11 @@ const Cart = ({ active }: any) => {
   const getTotalPrice = () => {
     return cart.reduce(
       (accumulator: number, item: CartInterface) =>
-        accumulator + item.quantity * item.price,
-      0
+        accumulator + item.quantity * item.price
     );
   };
+
+  console.log(cart)
 
 
   return (
@@ -87,8 +84,8 @@ const Cart = ({ active }: any) => {
           return (
             <>
               <ProductItem>
-                <ProductContainer key={product.id}>
-                  <Photo src={product?.photo} alt={product.name} />
+                <ProductContainer key={product?.id}>
+                  <Photo src={product?.photo} alt={product?.name} />
                   <ProductName>{product.name}</ProductName>
                   <QuantityAndAmountContainer>
                     <QuantityContainer>
@@ -96,15 +93,15 @@ const Cart = ({ active }: any) => {
                       <Amount>
                         <Decrement
                           onClick={() =>
-                            dispatch(decrementQuantity(product.id))
+                            dispatch(decrementQuantity(product?.id))
                           }
                         >
                           -
                         </Decrement>
-                        <Quantity>{product.quantity}</Quantity>
+                        <Quantity>{product?.quantity}</Quantity>
                         <Increment
                           onClick={() =>
-                            dispatch(incrementQuantity(product.id))
+                            dispatch(incrementQuantity(product?.id))
                           }
                         >
                           +
@@ -112,11 +109,11 @@ const Cart = ({ active }: any) => {
                       </Amount>
                     </QuantityContainer>
 
-                    <Price>R${product.price * product.quantity}</Price>
+                    <Price>R${product?.price * product?.quantity}</Price>
                   </QuantityAndAmountContainer>
                 </ProductContainer>
                 <RemoveButton
-                  onClick={() => dispatch(removeFromCart(product.id))}
+                  onClick={() => dispatch(removeFromCart(product?.id))}
                 >
                   x
                 </RemoveButton>
