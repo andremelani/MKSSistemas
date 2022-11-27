@@ -39,7 +39,7 @@ interface Cart {
   photo: string;
 }
 
-const Cart = ({ active }: () =>  void) => {
+const Cart = ({ active }: any) => {
   const cart = useSelector((state: RootState) => state.cart);
 
   const closeCart = () => {
