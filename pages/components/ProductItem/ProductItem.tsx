@@ -13,6 +13,8 @@ import {
   Icon,
 } from "./style";
 
+
+
 const ProductItem = ({ item }: any) => {
   const dispatch = useDispatch();
 

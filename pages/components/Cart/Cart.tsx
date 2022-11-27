@@ -6,7 +6,6 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "../../../redux/cartSlice";
-import { RootState } from "../../../redux/store";
 import {
   Amount,
   CartItems,
@@ -31,12 +30,16 @@ import {
   Confirm,
 } from "./style";
 
-interface Cart {
+interface CartInterface {
   id: number;
   quantity: number;
   price: number;
   name: string;
   photo: string;
+}
+
+interface RootState {
+  cart: any[]
 }
 
 const Cart = ({ active }: any) => {
@@ -58,7 +61,7 @@ const Cart = ({ active }: any) => {
 
   const getTotalPrice = () => {
     return cart.reduce(
-      (accumulator: number, item: Cart) =>
+      (accumulator: number, item: CartInterface) =>
         accumulator + item.quantity * item.price,
       0
     );
