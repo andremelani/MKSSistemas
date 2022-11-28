@@ -30,13 +30,6 @@ import {
   Confirm,
 } from "./style";
 
-interface CartInterface {
-  id: number;
-  quantity: number;
-  price: number;
-  name?: string;
-  photo?: string;
-}
 
 const Cart = ({ active }: any) => {
   const cart: any[] = useSelector((state: { cart: any[] }) => state.cart);

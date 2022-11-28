@@ -111,6 +111,7 @@ export const Photo = styled.img`
 
   }
 `;
+
 export const ProductName = styled.p`
   flex: 2;
   font-weight: 400;
@@ -261,4 +262,6 @@ export const QuantityAndAmountContainer = styled.div`
   }
 `;
 
-export const TotalPrice = styled.span``;
+export const TotalPrice = styled.span`
+
+`;

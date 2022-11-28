@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Container } from "../styles/style";
-import Products from "./components/Products/Products";
+import Products from "../src/components/Products/Products";
 
 
 
