@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Reducer } from 'redux'
 
-
 const cartSlice = createSlice({
   name: 'cart',
   initialState: [],
   reducers: {
     addToCart: (state, action) => {
       const itemExists = state.find(
-        (item: any[]) => item.id === action.payload.id
+        (item) => item.id === action.payload.id
       )
       if (itemExists) {
         itemExists.quantity++
@@ -25,7 +24,7 @@ const cartSlice = createSlice({
 
     decrementQuantity: (state, action) => {
       const item = state.find(
-        (item: any[]) => item.id === action.payload
+        (item) => item.id === action.payload
       )
       if (item.quantity === 1) {
         const index = state.findIndex(
@@ -53,4 +52,3 @@ export const {
   decrementQuantity,
   removeFromCart,
 } = cartSlice.actions
-

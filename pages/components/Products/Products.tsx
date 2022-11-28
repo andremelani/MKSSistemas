@@ -7,16 +7,12 @@ import { Container } from "./style";
 
 
 interface Products {
-  id:number
+  id: number
   quantity: number;
   price: number;
   name: string;
   photo: string;
   description: string,
-  brand: string,
-  createdAt: Date,
-  updatedAt: Date
-
 }
 
 
@@ -45,8 +41,8 @@ const Products = () => {
       {isLoading ? (
         <CardSkeleton />
       ) : (
-        products?.map((item) => {
-          return <ProductItem key={item} item={item} />;
+        products?.map((item: Products) => {
+          return <ProductItem key={item?.id} item={item} />;
         })
       )}
     </Container>

@@ -6,7 +6,6 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "../../../redux/cartSlice";
-import { RootState } from "../../../redux/store";
 import {
   Amount,
   CartItems,
@@ -39,15 +38,8 @@ interface CartInterface {
   photo?: string;
 }
 
-interface CartState {
-  cart: any[]
-
-}
-
 const Cart = ({ active }: any) => {
-
-  const cart: any[] = useSelector((state: CartState) => state.cart);
-
+  const cart: any[] = useSelector((state: { cart: any[] }) => state.cart);
 
   const closeCart = () => {
     active(false);
@@ -56,31 +48,30 @@ const Cart = ({ active }: any) => {
   const dispatch = useDispatch();
 
   const handleConfirmBuy = () => {
-      Swal.fire({
-        icon: "success",
-        title: "Parabens",
-        text: "Compra efetuada com sucesso!",
-      });
-  }
+    Swal.fire({
+      icon: "success",
+      title: "Parabens",
+      text: "Compra efetuada com sucesso!",
+    });
+  };
 
   const getTotalPrice = () => {
     return cart.reduce(
-      (accumulator: number, item: CartInterface) =>
-        accumulator + item.quantity * item.price
+      (accumulator: number, item: { quantity: number; price: number }) =>
+        accumulator + item.quantity * item.price,
+      0
     );
   };
 
-  console.log(cart)
-
-
   return (
-    <Container cart={active} >
+    //@ts-ignore
+    <Container cart={active}>
       <Info>
         <Title>Carrinho de compras</Title>
         <CloseButton onClick={closeCart}>X</CloseButton>
       </Info>
       <CartItems>
-        {cart.map((product: any) => {
+        {cart.map((product) => {
           return (
             <>
               <ProductItem>

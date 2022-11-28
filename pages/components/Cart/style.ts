@@ -102,7 +102,7 @@ export const ProductContainer = styled.div`
   }
 `;
 export const Photo = styled.img`
-  flex: 1;
+
   height: 100%;
   object-fit: cover;
   padding: 10px 0 10px 8px;
@@ -112,7 +112,7 @@ export const Photo = styled.img`
   }
 `;
 export const ProductName = styled.p`
-
+  flex: 2;
   font-weight: 400;
   font-size: 13px;
   text-align: left;

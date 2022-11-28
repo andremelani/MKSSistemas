@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 
 import Cart from "../Cart/Cart";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Container, Icon, Info, Left, Logo, Right } from "./style";
-
 
 interface Product {
   quantity: string;
 }
 
 interface RootState {
-  cart: any[]
-
+  cart: any[];
 }
-
 
 const Navbar = () => {
   const [cart, setCart] = useState<boolean>(false);
 
   const openCart = () => setCart(!cart);
 
-  const quantity = useSelector((state:RootState) => state.cart);
+  const quantity = useSelector((state: RootState) => state.cart);
 
   const getItemsCount = () => {
     return quantity.reduce(
